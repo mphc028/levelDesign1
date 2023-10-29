@@ -94,8 +94,14 @@ shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+process_mode = 0
 smoothing_enabled = true
 smoothing_speed = 7.0
 __meta__ = {
 "_editor_description_": "Test"
 }
+
+[node name="invulnerability" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="invulnerability" to="." method="_on_invulnerability_timeout"]

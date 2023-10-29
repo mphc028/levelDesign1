@@ -33,10 +33,14 @@ func _physics_process(delta):
 
 func _on_DamageArea_body_entered(body):
 	if body is Player:
-		get_tree().reload_current_scene()
+		body.damage(20)
+		body.velocity.y = -300
+		body.velocity.x = 500*dir
+		#get_tree().reload_current_scene()
 
 
 func _on_WeakArea_body_entered(body):
 	if body is Player:
 		body.velocity.y = -300
+		
 		get_parent().queue_free()
